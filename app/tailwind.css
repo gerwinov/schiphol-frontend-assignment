@@ -3,6 +3,36 @@
 @theme {
     --font-sans: Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
         Segoe UI Symbol, Noto Color Emoji;
+
+    /* Main colours */
+    --color-schiphol-blue: #141251;
+    --color-afternoon-blue: #1b60db;
+    --color-seebuyfly-yellow: #f9c900;
+
+    /* Secondary colours */
+    --color-morning-pink: #aa3191;
+    --color-lightmorning-pink: #ff8fb2;
+    --color-lightmorning-blue: #94b0ea;
+    --color-dusk-green: #027e9b;
+    --color-dusk-blue: #25d7f4;
+    --color-evening-pink: #6552a8;
+    --color-evening-lilac: #d285d6;
+
+    /* Greys */
+    --color-black: #000;
+    --color-grey-storm: #706a8a;
+    --color-grey-overcast: #9491aa;
+    --color-grey-broken: #bfbdcc;
+    --color-grey-scattered: #eae9ee;
+    --color-grey-few: #f2f1f4;
+    --color-white: #fff;
+
+    /* Signal colours */
+    --color-dark-red: #d0021b;
+    --color-green: #128a0b;
+    --color-light-blue: #eef6ff;
+    --color-light-green: #d0e8cf;
+    --color-light-yellow: #fdfbda;
 }
 
 /*
