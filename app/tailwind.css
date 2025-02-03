@@ -37,5 +37,5 @@
 
 html,
 body {
-    @apply bg-grey-few;
+    @apply bg-grey-few text-black;
 }
