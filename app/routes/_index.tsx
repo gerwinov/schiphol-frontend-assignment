@@ -5,7 +5,7 @@ import {useFetcher} from '@remix-run/react'
 import {Card, Input} from '~/components/ui'
 
 import {flights as flightsData} from '~/data/flights.json'
-import {getFlightData} from '~/utils/flightdata'
+import {getFlightData} from '~/helpers/flightdata'
 
 export const meta: MetaFunction = () => {
     return [
@@ -18,7 +18,7 @@ export async function loader({request}: LoaderFunctionArgs) {
     const url = new URL(request.url)
     const q = (url.searchParams.get('q') || '').toLowerCase()
     const sort = url.searchParams.get('sort') === 'desc' ? 'desc' : 'asc'
-    return getFlightData(q, sort, flightsData)
+    return q ? getFlightData(q, sort, flightsData) : null
 }
 
 export default function Index() {
