@@ -5,6 +5,7 @@ import {useFetcher} from '@remix-run/react'
 import {Card, Input} from '~/components/ui'
 
 import {flights as flightsData} from '~/data/flights.json'
+import {getFlightData} from '~/utils/flightdata'
 
 export const meta: MetaFunction = () => {
     return [
@@ -16,20 +17,8 @@ export const meta: MetaFunction = () => {
 export async function loader({request}: LoaderFunctionArgs) {
     const url = new URL(request.url)
     const q = (url.searchParams.get('q') || '').toLowerCase()
-    const sort = url.searchParams.get('sort') || 'asc'
-    return (
-        flightsData
-            // Used 'includes' for now. Maybe 'startsWith' would be more appropriate or some fuzzy search logic.
-            .filter((flight) => flight.airport.toLowerCase().includes(q))
-            .sort((a, b) =>
-                sort === 'asc'
-                    ? new Date(`${a.date} ${a.expectedTime}`).getTime() -
-                      new Date(`${b.date} ${b.expectedTime}`).getTime()
-                    : new Date(`${b.date} ${b.expectedTime}`).getTime() -
-                      new Date(`${a.date} ${a.expectedTime}`).getTime()
-            )
-            .slice(0, 5)
-    )
+    const sort = url.searchParams.get('sort') === 'desc' ? 'desc' : 'asc'
+    return getFlightData(q, sort, flightsData)
 }
 
 export default function Index() {
