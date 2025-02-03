@@ -68,7 +68,7 @@ export default function Index() {
                         <></>
                     ) : flights.data?.length !== 0 ? (
                         <>
-                            {/* This should normally also be in a UI component. Skipped that for now */}
+                            {/* This should also be in a UI component. Skipped that for now */}
                             <select
                                 className="self-end mb-2"
                                 name="sort"
@@ -88,6 +88,8 @@ export default function Index() {
                                             <Card.Header>
                                                 {/* Based on the data we could also show expected and original time to show delays. 
                                             Skipped that for now. */}
+                                                {/* There is some repetition in the HTML elements used to show text.
+                                            There could also be a UI component for text. Skipped that for now. */}
                                                 <span className="flex-1 text-sm font-light">
                                                     {new Date(flight.date).toLocaleDateString()}
                                                 </span>

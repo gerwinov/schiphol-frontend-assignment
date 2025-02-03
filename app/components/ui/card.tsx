@@ -1,3 +1,6 @@
+// This is by far not a complete implementation of a card component.
+// It just has some basic stuff needed for this excercise.
+
 const Root = (
     props: React.ComponentProps<'div'> & {
         direction: 'vertical' | 'horizontal'
