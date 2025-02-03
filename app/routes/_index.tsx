@@ -23,10 +23,10 @@ export async function loader({request}: LoaderFunctionArgs) {
             .filter((flight) => flight.airport.toLowerCase().includes(q))
             .sort((a, b) =>
                 sort === 'asc'
-                    ? new Date(`${a.date} ${a.originalTime}`).getTime() -
-                      new Date(`${b.date} ${b.originalTime}`).getTime()
-                    : new Date(`${b.date} ${b.originalTime}`).getTime() -
-                      new Date(`${a.date} ${a.originalTime}`).getTime()
+                    ? new Date(`${a.date} ${a.expectedTime}`).getTime() -
+                      new Date(`${b.date} ${b.expectedTime}`).getTime()
+                    : new Date(`${b.date} ${b.expectedTime}`).getTime() -
+                      new Date(`${a.date} ${a.expectedTime}`).getTime()
             )
             .slice(0, 5)
     )
@@ -103,7 +103,7 @@ export default function Index() {
                                                     {new Date(flight.date).toLocaleDateString()}
                                                 </span>
                                                 <span className="flex-1 text-sm font-light">
-                                                    {flight.originalTime}
+                                                    {flight.expectedTime}
                                                 </span>
                                             </Card.Header>
                                             <Card.Body>
