@@ -28,8 +28,8 @@ export default function Index() {
     const showResultsTreshold = 3
 
     return (
-        <flights.Form method="get" action="">
-            <div className="flex basis-full mb-4 py-4">
+        <flights.Form method="get" action="" className="w-full">
+            <div className="flex basis-full mb-4 py-4 h-45">
                 <div className="flex-1 mx-auto my-auto">
                     <div className="max-w-xs">
                         <h1 className="text-xl font-semibold mb-2">Find your departing flight</h1>
@@ -50,7 +50,7 @@ export default function Index() {
                     <img
                         alt="magnifying glass"
                         className="w-full h-auto"
-                        src="https://cdn.schiphol.nl/web/flights/assets/flight-search-asset-CjvqQkFT.png"
+                        src="/flight-search.png"
                     />
                 </div>
             </div>

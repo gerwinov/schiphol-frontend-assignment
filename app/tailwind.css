@@ -1,9 +1,6 @@
 @import 'tailwindcss';
 
 @theme {
-    --font-sans: Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-        Segoe UI Symbol, Noto Color Emoji;
-
     /* Main colours */
     --color-schiphol-blue: #141251;
     --color-afternoon-blue: #1b60db;
