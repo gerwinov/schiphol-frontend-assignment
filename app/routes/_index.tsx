@@ -25,7 +25,13 @@ export default function Index() {
     const flights = useFetcher<typeof flightsData>()
     const [destination, setDestination] = React.useState<string | undefined>(undefined)
     const [sort, setSort] = React.useState<'asc' | 'desc'>('asc')
-    const showResultsTreshold = 3
+    const showResultsThreshold = 3
+
+    React.useEffect(() => {
+        if (destination && destination.length >= showResultsThreshold) {
+            flights.submit({q: destination, sort})
+        }
+    }, [destination, sort])
 
     return (
         <flights.Form method="get" action="" className="w-full">
@@ -37,11 +43,8 @@ export default function Index() {
                         <Input
                             placeholder="Destination Airport"
                             name="q"
-                            onChange={(event) => {
-                                setDestination(event.target.value)
-                                event.target.value.length >= showResultsTreshold &&
-                                    flights.submit(event.target.form)
-                            }}
+                            value={destination}
+                            onChange={(event) => setDestination(event.target.value)}
                             type="text"
                         />
                     </div>
@@ -57,9 +60,9 @@ export default function Index() {
             {destination !== undefined && (
                 <div className="flex flex-wrap flex-col basis-full mb-4 py-4">
                     <h2 className="text-lg font-light mb-2">Departing flights</h2>
-                    {destination?.length < showResultsTreshold ? (
+                    {destination.length < showResultsThreshold ? (
                         <p className="text-sm text-grey-storm">
-                            Please enter at least {showResultsTreshold} characters
+                            Please enter at least {showResultsThreshold} characters
                         </p>
                     ) : flights.state === 'loading' ? (
                         // Should display some spinner here.
@@ -72,10 +75,7 @@ export default function Index() {
                             <select
                                 className="self-end mb-2"
                                 name="sort"
-                                onChange={(event) => {
-                                    flights.submit({sort: event.target.value, q: destination})
-                                    setSort(event.target.value as 'asc' | 'desc')
-                                }}
+                                onChange={(event) => setSort(event.target.value as 'asc' | 'desc')}
                                 value={sort}
                             >
                                 <option value="asc">Oldest first</option>
