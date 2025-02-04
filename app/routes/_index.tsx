@@ -64,11 +64,6 @@ export default function Index() {
                         <p className="text-sm text-grey-storm">
                             Please enter at least {showResultsThreshold} characters
                         </p>
-                    ) : flights.state === 'loading' ? (
-                        // Should display some spinner here.
-                        // In this example data is loaded so fast it just looks like a flicker.
-                        // Left this case in to show how it could be done.
-                        <></>
                     ) : flights.data?.length !== 0 ? (
                         <>
                             {/* This should also be in a UI component. Skipped that for now */}
