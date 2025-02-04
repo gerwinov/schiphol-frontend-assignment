@@ -56,7 +56,7 @@ export default function Index() {
             </div>
             {destination !== undefined && (
                 <div className="flex flex-wrap flex-col basis-full mb-4 py-4">
-                    <h1 className="text-lg font-light mb-2">Departing flights</h1>
+                    <h2 className="text-lg font-light mb-2">Departing flights</h2>
                     {destination?.length < showResultsTreshold ? (
                         <p className="text-sm text-grey-storm">
                             Please enter at least {showResultsTreshold} characters
